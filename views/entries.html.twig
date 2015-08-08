@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Address Book</title>
+</head>
+<body>
+  <h1>Address Book</h1>
+  {% if entries is not empty %}
+    <p>Here are your entries so far:</p>
+
+  <ul>
+  {% for entry in entries %}
+    <li>{{ entry.getDescription }}</li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+
+  <form action='/entries' method='post'>
+    <label for='description'>Task Description</label>
+    <input id='description' name='description' type='text'>
+
+    <button type='submit'>Add Task</button>
+  </form>
+
+  <form action='/delete_entries' method='post'>
+    <button type='submit'>Clear</button>
+  </form>
+</body>
+</html>
